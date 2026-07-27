@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/', function () {
     return "Welcome to NurseBuddy!";
 });
+
+Route::get('/dbconfig', function () {
+    return view('dbconfig');
+});
