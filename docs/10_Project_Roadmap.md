@@ -107,7 +107,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -124,7 +124,7 @@ Tasks
 * Logout
 * Session Management
 * Route Protection
-* Profile Page
+
 
 Deliverables
 
@@ -132,7 +132,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -249,10 +249,19 @@ Features
 * Edit Note
 * Delete Note
 * View Notes
+* Profile Page
 
 Deliverables
 
 * Personal Notes
+* Profile Settings
+
+Profile Module
+
+- Edit Profile
+- Upload Avatar
+- Change Password
+- Delete Account
 
 Status
 
