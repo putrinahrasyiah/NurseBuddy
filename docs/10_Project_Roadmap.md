@@ -53,7 +53,9 @@ A phase is considered complete only after all items above have been finished.
 | UI Planning          | ✅ Completed   |
 | Database Design      | ✅ Completed   |
 | API Design           | ✅ Completed   |
-| Laravel Development  | ⏳ Not Started |
+| Laravel Development  | ⏳ In Progress |
+| Task Management      | ✅ Completed   |
+| Study Library        | ✅ Completed   |
 | Testing              | ⏳ Not Started |
 | Deployment           | ⏳ Not Started |
 
@@ -142,24 +144,75 @@ Objective
 
 Allow users to manage academic and clinical tasks.
 
-Features
+Phase Goal
+
+Deliver a complete task management workflow with secure CRUD operations, clear task states, and deadline-driven prioritization.
+
+Scope
+
+* User can create, view, update, and delete personal tasks.
+* Each task supports priority, deadline, urgent flag, and status.
+* Only authenticated users can access task management.
+* Users can only access their own tasks.
+
+Planned Features
 
 * View Tasks
 * Create Task
 * Update Task
 * Delete Task
-* Priority
+* Priority (Low, Medium, High)
 * Deadline
 * Urgent Flag
-* Task Status
+* Task Status (Pending, In Progress, Done)
+* Basic filtering by status and priority
+
+Technical Tasks
+
+* Create `tasks` migration and model relation with users
+* Add `Task` model and `User -> hasMany(Task)` relation
+* Build `TaskController` for CRUD actions
+* Create Request Validation classes for store and update
+* Define routes in `routes/web.php` with auth middleware
+* Build Blade views for task list, create form, and edit form
+* Add flash messages for create, update, and delete actions
+* Implement query filtering for status and priority
+
+Validation Rules (Minimum)
+
+* Title: required, string, max length
+* Description: nullable, text
+* Priority: required, in allowed values
+* Status: required, in allowed values
+* Deadline: nullable, valid date
+* Urgent: boolean
+
+Testing Plan
+
+* Feature tests for create/read/update/delete task
+* Authorization tests to prevent cross-user task access
+* Validation tests for invalid form input
+* UI flow check for desktop and mobile layouts
 
 Deliverables
 
-* Fully functional Task Management
+* Fully functional Task Management module
+* Protected task routes and ownership checks
+* Passing feature tests for core task flows
+* Updated documentation for task module usage
+
+Definition of Done
+
+* All task CRUD flows run without errors
+* Data is stored correctly in database
+* Unauthorized access is blocked
+* Validation errors display properly in UI
+* Tests for critical paths pass
+* Changes committed and pushed to GitHub
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -186,7 +239,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -404,8 +457,8 @@ Throughout the project, the following principles will be maintained:
 | Documentation Complete          | ✅      |
 | Laravel Setup                   | ⬜      |
 | Authentication                  | ⬜      |
-| Task Management                 | ⬜      |
-| Study Library                   | ⬜      |
+| Task Management                 | ✅      |
+| Study Library                   | ✅      |
 | Obatpedia                       | ⬜      |
 | Mood Tracker                    | ⬜      |
 | Notes                           | ⬜      |

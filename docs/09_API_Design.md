@@ -273,6 +273,24 @@ Display detailed learning material.
 
 ---
 
+## Update Learning Status
+
+PATCH
+
+```text
+/study-library/material/{id}/status
+```
+
+Input
+
+* Status (Pending, Done)
+
+Purpose
+
+Update personal learning progress for the selected material.
+
+---
+
 # Obatpedia Module
 
 ## View Drug List
