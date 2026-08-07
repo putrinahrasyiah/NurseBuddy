@@ -68,5 +68,8 @@ class DatabaseSeeder extends Seeder
             'resource_type' => 'website',
             'resource_url' => 'https://www.who.int/',
         ]);
+
+        $this->call(TaskSeeder::class);
+        $this->call(ObatpediaSeeder::class);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ObatpediaController;
 use App\Http\Controllers\StudyLibraryController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/study-library/category/{studyCategory}', [StudyLibraryController::class, 'byCategory'])->name('study-library.by-category');
     Route::get('/study-library/material/{studyMaterial}', [StudyLibraryController::class, 'show'])->name('study-library.show');
     Route::patch('/study-library/material/{studyMaterial}/status', [StudyLibraryController::class, 'updateStatus'])->name('study-library.status');
+
+    Route::get('/obatpedia', [ObatpediaController::class, 'index'])->name('obatpedia.index');
+    Route::get('/obatpedia/{drug}', [ObatpediaController::class, 'show'])->name('obatpedia.show');
+    Route::patch('/obatpedia/{drug}/vote', [ObatpediaController::class, 'vote'])->name('obatpedia.vote');
 });
 
 require __DIR__.'/auth.php';

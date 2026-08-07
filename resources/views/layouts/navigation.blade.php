@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('study-library.index')" :active="request()->routeIs('study-library.*')">
                         {{ __('Study Library') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('obatpedia.index')" :active="request()->routeIs('obatpedia.*')">
+                        {{ __('Obatpedia') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -81,6 +84,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('study-library.index')" :active="request()->routeIs('study-library.*')">
                 {{ __('Study Library') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('obatpedia.index')" :active="request()->routeIs('obatpedia.*')">
+                {{ __('Obatpedia') }}
             </x-responsive-nav-link>
         </div>
 

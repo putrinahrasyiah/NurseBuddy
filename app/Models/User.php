@@ -35,6 +35,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get community drug votes made by the user.
+     */
+    public function drugVotes(): HasMany
+    {
+        return $this->hasMany(DrugVote::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

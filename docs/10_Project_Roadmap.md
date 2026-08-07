@@ -56,6 +56,7 @@ A phase is considered complete only after all items above have been finished.
 | Laravel Development  | ⏳ In Progress |
 | Task Management      | ✅ Completed   |
 | Study Library        | ✅ Completed   |
+| Obatpedia            | ✅ Completed   |
 | Testing              | ⏳ Not Started |
 | Deployment           | ⏳ Not Started |
 
@@ -264,7 +265,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -459,7 +460,7 @@ Throughout the project, the following principles will be maintained:
 | Authentication                  | ⬜      |
 | Task Management                 | ✅      |
 | Study Library                   | ✅      |
-| Obatpedia                       | ⬜      |
+| Obatpedia                       | ✅      |
 | Mood Tracker                    | ⬜      |
 | Notes                           | ⬜      |
 | Dashboard                       | ⬜      |
