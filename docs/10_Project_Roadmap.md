@@ -275,11 +275,70 @@ Objective
 
 Help users monitor emotional well-being.
 
-Features
+Phase Goal
 
-* Daily Mood Entry
-* Reflection
-* Mood History
+Deliver a simple and consistent daily mood journaling flow that is easy to use, secure per user, and reliable for long-term tracking.
+
+Scope
+
+* Authenticated users can record one mood entry per day.
+* Each entry contains a mood selection and optional reflection text.
+* Users can view their own mood history sorted by date.
+* Users can update their own existing entry when needed.
+* Users cannot access or modify another user's mood entries.
+
+Planned Features
+
+* Daily Mood Check-in
+* Optional Reflection Note
+* Mood History Timeline
+* Filter History by Month
+* Flash Feedback for Save and Update
+
+Technical Tasks
+
+* Create `mood_entries` migration with unique constraint `(user_id, entry_date)`
+* Add `MoodEntry` model and `User -> hasMany(MoodEntry)` relation
+* Build `MoodEntryController` for listing, storing, and updating entries
+* Create Request Validation classes for store and update
+* Define routes in `routes/web.php` under `auth` middleware
+* Build Blade view for daily entry form and history list
+* Add navigation access from dashboard and main menu
+* Add ownership guard to block cross-user access
+
+Validation Rules (Minimum)
+
+* Mood: required, in allowed values
+* Reflection: nullable, text, max length
+* Entry Date: required, valid date
+* Entry Date per user: unique per day
+
+Testing Plan
+
+* Guest cannot access mood routes
+* Authenticated user can create daily mood entry
+* User cannot create duplicate entry on same date
+* User can update own entry
+* User cannot update another user's entry
+* Validation errors appear for invalid payload
+* History page only shows current user's data
+
+Deliverables
+
+* Fully functional Mood Tracker module
+* Daily check-in flow with one-entry-per-day rule
+* Secure ownership checks for mood records
+* Passing feature tests for core mood flows
+* Updated documentation for mood module behavior
+
+Definition of Done
+
+* Mood entries are stored correctly in database
+* Duplicate same-day entries are prevented
+* Only owner can view and modify their entries
+* Validation feedback is shown properly in UI
+* Core feature tests pass
+* Changes committed and pushed to GitHub
 
 Deliverables
 
@@ -287,7 +346,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -297,29 +356,124 @@ Objective
 
 Allow users to store personal learning notes.
 
+Phase Goal
+
+Deliver a practical personal notes workflow and basic profile settings so users can write study notes safely and maintain account information without leaving the app.
+
+Scope
+
+* Authenticated users can create, view, update, and delete their own notes.
+* Notes support title, content, optional tags, and optional pinned status.
+* Notes list supports search and basic sorting (latest and pinned first).
+* Users can update basic profile data (name, email).
+* Users can change password with current password confirmation.
+* Users can optionally upload avatar image.
+* Users can delete account with password confirmation.
+* Users cannot access or modify another user's notes or profile data.
+
 Features
 
 * Create Note
 * Edit Note
 * Delete Note
 * View Notes
+* Search Notes
+* Pin / Unpin Note
 * Profile Page
+
+Practical Features for Version 1.0
+
+* Notes List Page (cards or table)
+* Note Create Form
+* Note Edit Form
+* Note Delete Action with confirmation
+* Search by title and content
+* Pin notes for quick access
+* Profile Edit (name and email)
+* Avatar Upload (image only)
+* Password Update
+* Account Deletion
+
+Technical Tasks
+
+* Create `notes` migration with relation to `users` and ownership index.
+* Add `Note` model and `User -> hasMany(Note)` relation.
+* Build `NoteController` for index, store, update, and destroy.
+* Create Request Validation classes for note store and update.
+* Add authorization policy or ownership checks for every note action.
+* Define protected routes in `routes/web.php` under `auth` middleware.
+* Build Blade views for notes list, create, and edit.
+* Implement simple query search and sorting logic for notes list.
+* Integrate pin and unpin action with lightweight update endpoint.
+* Use Laravel built-in profile update, password update, and account deletion flow.
+* Add avatar upload path and storage linking (`storage:link`) if not yet configured.
+* Add flash messages for all create, update, and delete actions.
+
+Suggested Notes Table Fields
+
+* id
+* user_id (foreign key, cascade on delete)
+* title (string)
+* content (text)
+* tags (nullable string for comma-separated tags in v1)
+* is_pinned (boolean, default false)
+* created_at
+* updated_at
+
+Validation Rules (Minimum)
+
+* Title: required, string, max length
+* Content: required, text
+* Tags: nullable, string, max length
+* Is Pinned: boolean
+* Avatar: nullable, image, max size limit
+* Name: required, string, max length
+* Email: required, email, unique except current user
+* Password Change: current password required, new password confirmation required
+* Account Deletion: current password required
+
+Testing Plan
+
+* Guest cannot access notes and profile settings routes.
+* Authenticated user can create, read, update, and delete own note.
+* User cannot access or modify another user's note.
+* Search only returns current user's matching notes.
+* Pin and unpin action updates only owner note.
+* Validation errors appear for invalid note and profile payloads.
+* User can update own profile data.
+* User can change password with valid current password.
+* User can delete account after password confirmation.
 
 Deliverables
 
-* Personal Notes
-* Profile Settings
+* Fully functional Personal Notes module
+* Basic Profile Settings module integrated with auth user
+* Secure ownership and authorization checks for notes
+* Passing feature tests for notes and profile critical flows
+* Updated documentation for note usage and profile behavior
 
-Profile Module
+Definition of Done
 
-- Edit Profile
-- Upload Avatar
-- Change Password
-- Delete Account
+* Notes CRUD works without errors for authenticated users
+* Cross-user note access is blocked
+* Search and pin behavior works as expected
+* Profile update, password change, and account deletion work correctly
+* Validation feedback is shown properly in UI
+* Core feature tests pass
+* Changes committed and pushed to GitHub
+
+Implementation Priority
+
+1. Notes migration, model, and relation
+2. Notes CRUD controller and request validation
+3. Notes views and list search
+4. Pin and unpin support
+5. Profile settings integration
+6. Feature tests and bug fixes
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -456,13 +610,13 @@ Throughout the project, the following principles will be maintained:
 | Milestone                       | Status |
 | ------------------------------- | ------ |
 | Documentation Complete          | ✅      |
-| Laravel Setup                   | ⬜      |
-| Authentication                  | ⬜      |
+| Laravel Setup                   | ✅      |
+| Authentication                  | ✅      |
 | Task Management                 | ✅      |
 | Study Library                   | ✅      |
 | Obatpedia                       | ✅      |
-| Mood Tracker                    | ⬜      |
-| Notes                           | ⬜      |
+| Mood Tracker                    | ✅      |
+| Notes                           | ✅      |
 | Dashboard                       | ⬜      |
 | Testing                         | ⬜      |
 | Deployment                      | ⬜      |

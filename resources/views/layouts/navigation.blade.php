@@ -24,6 +24,12 @@
                     <x-nav-link :href="route('obatpedia.index')" :active="request()->routeIs('obatpedia.*')">
                         {{ __('Obatpedia') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('moods.index')" :active="request()->routeIs('moods.*')">
+                        {{ __('Mood Tracker') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.*')">
+                        {{ __('Notes') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -87,6 +93,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('obatpedia.index')" :active="request()->routeIs('obatpedia.*')">
                 {{ __('Obatpedia') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('moods.index')" :active="request()->routeIs('moods.*')">
+                {{ __('Mood Tracker') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.*')">
+                {{ __('Notes') }}
             </x-responsive-nav-link>
         </div>
 

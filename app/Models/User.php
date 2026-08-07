@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['name', 'email', 'avatar_path', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -40,6 +40,22 @@ class User extends Authenticatable
     public function drugVotes(): HasMany
     {
         return $this->hasMany(DrugVote::class);
+    }
+
+    /**
+     * Get all mood entries for the user.
+     */
+    public function moodEntries(): HasMany
+    {
+        return $this->hasMany(MoodEntry::class);
+    }
+
+    /**
+     * Get all notes for the user.
+     */
+    public function notes(): HasMany
+    {
+        return $this->hasMany(Note::class);
     }
 
     /**

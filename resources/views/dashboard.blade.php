@@ -37,6 +37,26 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg border-l-4 border-rose-500 dark:border-rose-400">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ __('Mood Tracker') }}</h3>
+                        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Capture your daily mood, write reflections, and review your emotional trend history.') }}</p>
+                        <a href="{{ route('moods.index') }}" class="mt-4 inline-flex text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+                            {{ __('Open Mood Tracker') }}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg border-l-4 border-amber-500 dark:border-amber-400">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ __('Personal Notes') }}</h3>
+                        <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Write quick learning notes, pin important summaries, and keep study highlights organized.') }}</p>
+                        <a href="{{ route('notes.index') }}" class="mt-4 inline-flex text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+                            {{ __('Open Notes') }}
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

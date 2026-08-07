@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MoodEntryController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ObatpediaController;
 use App\Http\Controllers\StudyLibraryController;
 use App\Http\Controllers\TaskController;
@@ -20,6 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('tasks', TaskController::class)->except('show');
+    Route::resource('moods', MoodEntryController::class)->only(['index', 'create', 'store', 'edit', 'update']);
+    Route::resource('notes', NoteController::class)->except('show');
+    Route::patch('/notes/{note}/pin', [NoteController::class, 'togglePin'])->name('notes.pin');
     Route::get('/study-library', [StudyLibraryController::class, 'index'])->name('study-library.index');
     Route::get('/study-library/category/{studyCategory}', [StudyLibraryController::class, 'byCategory'])->name('study-library.by-category');
     Route::get('/study-library/material/{studyMaterial}', [StudyLibraryController::class, 'show'])->name('study-library.show');
