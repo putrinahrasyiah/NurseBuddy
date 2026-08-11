@@ -59,6 +59,7 @@ A phase is considered complete only after all items above have been finished.
 | Obatpedia            | ✅ Completed   |
 | Testing              | ⏳ Not Started |
 | Deployment           | ⏳ Not Started |
+| Dashboard Integration| ✅ Completed   |
 
 ---
 
@@ -499,7 +500,7 @@ Deliverables
 
 Status
 
-⬜ Pending
+✅ Completed
 
 ---
 
@@ -617,7 +618,7 @@ Throughout the project, the following principles will be maintained:
 | Obatpedia                       | ✅      |
 | Mood Tracker                    | ✅      |
 | Notes                           | ✅      |
-| Dashboard                       | ⬜      |
+| Dashboard                       | ✅      |
 | Testing                         | ⬜      |
 | Deployment                      | ⬜      |
 | NurseBuddy Version 1.0 Released | ⬜      |
